@@ -108,7 +108,7 @@
 const socket = io('https://uet-video-call.herokuapp.com/');
 
 $('#div-chat').hide();
-const customConfig;
+let customConfig;
 $.ajax ({
             url: "https://global.xirsys.net/_turn/uet-video-call/",
             type: "PUT",
