@@ -140,7 +140,8 @@ function playStream(idVideoTag, stream){
 }
 
 
-const peer = new Peer({key: 'bz2n370oiy919k9'});
+// const peer = new Peer({key: 'bz2n370oiy919k9'});
+const peer = new Peer({key: 'peerjs', host: 'https://uet-video-call-peer.herokuapp.com/', secure: true,  port:443})
 peer.on('open', id =>{
    $('#my-peer').append(id)
    $('#btnSignUp').click(() => {
