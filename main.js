@@ -108,19 +108,19 @@
 const socket = io('https://uet-video-call.herokuapp.com/');
 
 $('#div-chat').hide();
-let customConfig;
-$.ajax ({
-            url: "https://global.xirsys.net/_turn/uet-video-call/",
-            type: "PUT",
-            async: false,
-            headers: {
-              "Authorization": "Basic " + btoa("LyTuan:e540223a-c83a-11e7-bb35-cf04bb8c3b59")
-            },
-            success: function (res){
-              customConfig = res.d;
-              console.log("ICE List: "+res.v.iceServers);
-            }
-        });
+// let customConfig;
+// $.ajax ({
+//             url: "https://global.xirsys.net/_turn/uet-video-call/",
+//             type: "PUT",
+//             async: false,
+//             headers: {
+//               "Authorization": "Basic " + btoa("LyTuan:e540223a-c83a-11e7-bb35-cf04bb8c3b59")
+//             },
+//             success: function (data, status){
+//               customConfig = data.d;
+//               console.log("ICE List: "+customConfig);
+//             }
+//         });
 socket.on('DANH_SACH_ONLINE', arrUserInfo =>{
   $('#div-chat').show();
   $('#div-dang-ky').hide();
@@ -154,7 +154,7 @@ function playStream(idVideoTag, stream){
 
 
 // const peer = new Peer({key: 'bz2n370oiy919k9'});
-const peer = new Peer({key: 'peerjs', host: 'uet-video-call-peer.herokuapp.com', secure: true,  port:443, config: customConfig})
+const peer = new Peer({key: 'peerjs', host: 'uet-video-call-peer.herokuapp.com', secure: true,  port:443})
 peer.on('open', id =>{
    $('#my-peer').append(id)
    $('#btnSignUp').click(() => {
